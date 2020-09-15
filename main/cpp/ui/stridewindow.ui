@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StrideWindow</class>
+ <widget class="QWidget" name="StrideWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>384</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Peryite UI - Stride</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	font: 10pt &quot;FreeSans&quot;;
+ 	background-color: #f7f7f7;
+}
+
+QLabel {
+ 	background-color: #f7f7f7;
+ 	color: black;
+  	border: 1px solid #dddddd;
+	border-radius: 4px;
+}
+
+QPushButton {
+	background-color: #78e08f;
+	color: white;
+	border: none;
+	border-radius: 4px;
+}
+
+QPushButton:hover {
+	background-color: #3c6382;
+}
+
+QPushButton:disabled {
+	background-color: #aaaaaa;
+}
+
+QGroupBox {
+	border: none;
+	background-color: #eaeaea;
+	font-size: 16px;
+	text-align: center;
+	border-radius: 4px;
+}
+
+QGroupBox:title {
+	left: 16;
+	top: 8;
+}
+
+QToolTip {
+	font: 10pt &quot;FreeSans&quot;;
+ 	background-color: #f7f7f7;
+	border-radius: 4px;
+}</string>
+  </property>
+  <widget class="QGroupBox" name="ConfigGroup">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>16</y>
+     <width>448</width>
+     <height>96</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Main Configuration</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <widget class="QLabel" name="runsLabel">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>64</y>
+      <width>96</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Runs</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="configLabel">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>32</y>
+      <width>96</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Config File</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="runsInput">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>64</y>
+      <width>312</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>1000</number>
+    </property>
+    <property name="displayIntegerBase">
+     <number>10</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="configInput">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>32</y>
+      <width>312</width>
+      <height>26</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="RngGroup">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>128</y>
+     <width>448</width>
+     <height>96</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>RNG</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <widget class="QLabel" name="engineLabel">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>32</y>
+      <width>96</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Engine</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="engineInput">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>32</y>
+      <width>208</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+    <property name="currentIndex">
+     <number>-1</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="seedLabel">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>64</y>
+      <width>96</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Seed</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="seedInput">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>64</y>
+      <width>208</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>2147483647</number>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="varyEngineInput">
+    <property name="geometry">
+     <rect>
+      <x>416</x>
+      <y>32</y>
+      <width>16</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="varyEngineLabel">
+    <property name="geometry">
+     <rect>
+      <x>336</x>
+      <y>32</y>
+      <width>64</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Random?</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="varySeedLabel">
+    <property name="geometry">
+     <rect>
+      <x>336</x>
+      <y>64</y>
+      <width>64</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Random?</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="varySeedInput">
+    <property name="geometry">
+     <rect>
+      <x>416</x>
+      <y>64</y>
+      <width>16</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="OptionsGroup">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>240</y>
+     <width>448</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Extra Options</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <widget class="QCheckBox" name="scatterGraphInput">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>32</y>
+      <width>16</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="scatterGraphLabel">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>32</y>
+      <width>96</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Output Graph?</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="mapViewerInput">
+    <property name="geometry">
+     <rect>
+      <x>116</x>
+      <y>32</y>
+      <width>16</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mapViewerLabel">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>32</y>
+      <width>96</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Map Viewer</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="logLabel">
+    <property name="geometry">
+     <rect>
+      <x>304</x>
+      <y>32</y>
+      <width>96</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>Cli Log?</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="logInput">
+    <property name="geometry">
+     <rect>
+      <x>404</x>
+      <y>32</y>
+      <width>16</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="runButton_all">
+   <property name="geometry">
+    <rect>
+     <x>108</x>
+     <y>316</y>
+     <width>76</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Run All</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="statusLabel">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>348</y>
+     <width>448</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string>Status: Idle</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="runButton_one">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>316</y>
+     <width>76</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Run 1</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="runButton_multi">
+   <property name="geometry">
+    <rect>
+     <x>292</x>
+     <y>316</y>
+     <width>76</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Run Multi</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="runMultiInput">
+   <property name="geometry">
+    <rect>
+     <x>384</x>
+     <y>316</y>
+     <width>80</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="runButton_batch">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>316</y>
+     <width>76</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Run Batch</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
